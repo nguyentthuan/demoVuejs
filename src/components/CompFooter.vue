@@ -1,5 +1,8 @@
 <template>
-  <header><h1>----{{titleFooter}}----</h1></header>
+ <div class="footer">
+   <header><h1>----{{titleFooter}}----</h1></header>
+    
+  </div>
 </template>
 
 <script>
@@ -17,7 +20,9 @@ export default {
 </script>
 
 <style lang="scss">
-
+   .footer{
+    border: 2px solid;
+     }
 
 
 </style>
