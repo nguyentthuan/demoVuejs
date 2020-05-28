@@ -1,32 +1,37 @@
 <template>
   <div id="app">
-    <comp-header v-bind:titleHeader="titleHeader" />
+    
     <div class="container">
-      <div class="inputthem">
-        <input  ref="inputName" type="text" size="33" placeholder="Username.." >
-        <input  ref="inputPhone" type="text" size="15" placeholder="PhoneNumber.." >
-        <button @click="addUser">ADD</button>
+      <comp-header  />  
+      <div class="group1">
+           <div class="input-them">
+                <input  ref="inputName" class=" mr-sm-2" type="text" size="25" placeholder="Username" >
+                <input  ref="inputPhone" class=" mr-sm-2" type="text" size="12" placeholder="PhoneNumber" >
+                <button class="btn btn-outline-success my-2 my-sm-0"   v-on:click="addUser">ADD</button>
+           </div>    
+      </div>
+         
+      <div class="list-user">
+           <list-user v-bind:listUser="listUser" v-on:deleteUserEvent="deleteUser"/>
+
       </div>
       
-      <br><br>
-      <list-user v-bind:listUser="listUser" v-on:deleteUserEvent="deleteUser"/>
     </div>
-    <comp-footer v-bind:titleFooter="titleFooter" />
+    
+   
   </div>
 </template>
 
-<script>
+<script >
+//import {Component,Props,Vue} from "vue-property-decorator"
 import CompHeader from "./components/CompHeader";
-import CompFooter from "./components/CompFooter";
 import ListUser from "./components/ListUser";
 
 export default {
   name: "app",
   data() {
     return {
-      titleHeader: "Hello Header",
-      titleFooter: "Hello Footer",
-      username : '',
+     
       listUser: [
         { fullname: "Thuan Nguyen", phone: '0798742876'},
         { fullname: "Sir Alex", phone: '0384562876' },
@@ -58,7 +63,6 @@ export default {
   },
   components: {
     CompHeader,
-    CompFooter,
     ListUser
   }
 };
@@ -77,12 +81,18 @@ export default {
     margin: 0 auto;
     padding: 0 15px;
     max-height: 3000px;
-    .inputthem{
+    .input-them{
       margin: 7px;
       width: 550px;
       float: right;
-      background: rgb(116, 174, 240)
     }
+    .group1:after{
+      clear: both;
+      content: ".";
+      display: block;
+      width: 0px;
+      height: 0px;
+        }
   }
 }
 </style>

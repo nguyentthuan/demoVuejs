@@ -43,8 +43,8 @@ export default {
     margin-bottom: 20px;
     background: wheat;
     border: 1px solid;
-    width: 300px;
-    height: 70px;
+    width: 290px;
+    height: 100px;
    
     
   }
